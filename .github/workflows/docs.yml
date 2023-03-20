@@ -1,5 +1,8 @@
 name: Docs
 
+permissions:
+  pages: write
+
 on:
   workflow_dispatch:
     inputs:
