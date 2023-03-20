@@ -1,5 +1,9 @@
 name: Docs
 
+permissions:
+  pages: write
+  contents: write
+
 on:
   workflow_dispatch:
     inputs:
@@ -33,9 +37,9 @@ jobs:
     name: Build and Publish
     runs-on: ubuntu-latest
     env:
-      INPUTPATH: asciidocs
+      INPUTPATH: docs
       OUTPUTPATH: dist
-      SLIDES: true
+      SLIDES: false
       BRANCH: gh-pages
     steps:
       - uses: actions/checkout@v2
