@@ -5,8 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
+<meta name="author" content=":author:Nico Wakolbinger, Mattias Wolfslehner">
 <link rel="icon" type="image/png" href="themes/favicon.png">
-<title>Dokumentation - NWT Subnetze Projekt</title>
+<title>Proxmox - Projekt - Subnets | Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -440,25 +441,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Dokumentation - NWT Subnetze Projekt</h1>
+<h1>Proxmox - Projekt - Subnets | Documentation</h1>
+<div class="details">
+<span id="author" class="author">:author:Nico Wakolbinger, Mattias Wolfslehner</span><br>
+</div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_containervms">1. Container/VMs</a></li>
+<li><a href="#_plan">2. Plan</a>
 <ul class="sectlevel3">
-<li><a href="#_autor_nico_wakolbinger_mattias_wolfslehner">1. Autor: Nico Wakolbinger, Mattias Wolfslehner</a></li>
-<li><a href="#_container">2. Container</a></li>
+<li><a href="#_configure_gateway_container">2.1. Configure Gateway Container</a></li>
+<li><a href="#_configure_firewall_for_gateway_container">2.2. Configure Firewall for Gateway Container</a></li>
+<li><a href="#_webserver_container">2.3. Webserver (Container)</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div class="sect3">
-<h4 id="_autor_nico_wakolbinger_mattias_wolfslehner"><a class="anchor" href="#_autor_nico_wakolbinger_mattias_wolfslehner"></a>1. Autor: Nico Wakolbinger, Mattias Wolfslehner</h4>
-
-</div>
 <div class="sect1">
-<h2 id="_container"><a class="anchor" href="#_container"></a>2. Container</h2>
+<h2 id="_containervms"><a class="anchor" href="#_containervms"></a>1. Container/VMs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>CT ID:</p>
+<p>Hostname: 3ahitm-wolfslehner
+Password: WakWolfProjekt</p>
 </div>
 <div class="ulist">
 <ul>
@@ -469,15 +476,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p>Hostname: 3ahitm-wolfslehner-wakolbinger-glue</p>
 </li>
+<li>
+<p>IP: 10.9.7.145</p>
+</li>
+<li>
+<p>Gateway zum GlueNet</p>
+</li>
+<li>
+<p>Firewall</p>
+</li>
 </ul>
 </div>
 </li>
 <li>
-<p>CT 7261</p>
+<p>VM 7261</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Hostname: 3ahitm-wolfslehner-wakolbinger-01</p>
+</li>
+<li>
+<p>IP: 10.9.7.146</p>
+</li>
+<li>
+<p>Ubuntu iso Image</p>
 </li>
 </ul>
 </div>
@@ -541,8 +563,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Password: WakWolfProjekt</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/img/screenshot-create-ct.png" alt="screenshot create ct"></span></p>
+<p><span class="image"><img src="images/screenshot-create-ct.png" alt="screenshot create ct"></span></p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plan"><a class="anchor" href="#_plan"></a>2. Plan</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -553,35 +580,73 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://ikus-soft.com/en_CA/blog/techies-10/proxmox-ve-performance-of-kvm-vs-lxc-75" target="_blank" rel="noopener">Vergleich KVM und LXC</a></p>
-</li>
-<li>
 <p>Container sind in der Regel leichtgewichtiger als VMs, da sie den Kernel des Host-Betriebssystems nutzen und somit weniger Ressourcen benötigen. Container können auch schneller starten und stoppen und sind einfacher zu verwalten. Wenn der Gateway-Server beispielsweise nur eine begrenzte Anzahl von Diensten bereitstellen soll, kann ein Container eine gute Wahl sein.</p>
 </li>
 </ul>
 </div>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>VMs bieten eine höhere Isolation und können mehrere Betriebssysteme ausführen, was eine höhere Flexibilität bei der Konfiguration des Gateway-Servers ermöglicht. Wenn der Gateway-Server beispielsweise komplexere Anforderungen hat, wie z.B. die Notwendigkeit, verschiedene Betriebssysteme auszuführen oder Hardware-Virtualisierung zu nutzen, kann eine VM eine bessere Wahl sein.</p>
-</div>
-<div class="paragraph">
-<p>Letztendlich hängt die Wahl zwischen Container oder VM als Gateway-Server von den spezifischen Anforderungen und Vorlieben des Benutzers ab. Es ist wichtig zu beachten, dass beide Optionen in der Lage sind, eine gute Leistung als Gateway-Server zu liefern.</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p>gateway zum www 254</p>
 </li>
+<li>
+<p>webseite hosten</p>
+</li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Container ist ressourcensparender als eine VM (<a href="https://ikus-soft.com/en_CA/blog/techies-10/proxmox-ve-performance-of-kvm-vs-lxc-75" target="_blank" rel="noopener">Vergleich KVM und LXC</a>), weshalb sie hier als Gateway verwendet werden.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_configure_gateway_container"><a class="anchor" href="#_configure_gateway_container"></a>2.1. Configure Gateway Container</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>3ahitm-wolfslehner-wakolbinger-glue</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Mit diesen Einstellungen kann man das GlueNet und somit das www erreichen (siehe Netzwerkplan)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/screenshot-network-gateway-glue.png" alt="screenshot network gateway glue">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configure_firewall_for_gateway_container"><a class="anchor" href="#_configure_firewall_for_gateway_container"></a>2.2. Configure Firewall for Gateway Container</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_webserver_container"><a class="anchor" href="#_webserver_container"></a>2.3. Webserver (Container)</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Nginx</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-20 14:48:37 UTC
+Last updated 2023-03-27 14:20:04 UTC
 </div>
 </div>
 </body>
