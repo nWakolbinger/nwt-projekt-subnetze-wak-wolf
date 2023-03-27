@@ -1,22 +1,40 @@
-= Dokumentation - NWT Subnetze Projekt
+= Proxmox - Projekt - Subnets | Documentation
+ifndef::imagesdir[:imagesdir: img]
+:icons: font
+:experimental:
+:sectnums:
+:toc:
+:author:Nico Wakolbinger, Mattias Wolfslehner
+ifdef::backend-html5[]
 
-==== Autor: Nico Wakolbinger, Mattias Wolfslehner
+== Container/VMs
 
-== Container
-CT ID:
+Hostname: 3ahitm-wolfslehner
+Password: WakWolfProjekt
 
 * CT 7260
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-glue
-* CT 7261
+** IP: 10.9.7.145
+** Gateway zum GlueNet
+** Firewall
+
+* VM 7261
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-01
+** IP: 10.9.7.146
+** Ubuntu iso Image
+
 * CT 7262
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-02
+
 * CT 7263
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-03
+
 * CT 7264
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-04
+
 * CT 7265
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-05
+
 * CT 7267
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-06
 
@@ -24,18 +42,32 @@ Hostname: 3ahitm-wolfslehner
 
 Password: WakWolfProjekt
 
-image:img/screenshot-create-ct.png[]
+image:screenshot-create-ct.png[]
 
+== Plan
 
 * VM in Proxmox erstellen (Punkt 2) -> iso image von Ubuntu
-
 * gateway (Container oder VM)
-** https://ikus-soft.com/en_CA/blog/techies-10/proxmox-ve-performance-of-kvm-vs-lxc-75[Vergleich KVM und LXC^]
 ** Container sind in der Regel leichtgewichtiger als VMs, da sie den Kernel des Host-Betriebssystems nutzen und somit weniger Ressourcen benötigen. Container können auch schneller starten und stoppen und sind einfacher zu verwalten. Wenn der Gateway-Server beispielsweise nur eine begrenzte Anzahl von Diensten bereitstellen soll, kann ein Container eine gute Wahl sein.
-
-VMs bieten eine höhere Isolation und können mehrere Betriebssysteme ausführen, was eine höhere Flexibilität bei der Konfiguration des Gateway-Servers ermöglicht. Wenn der Gateway-Server beispielsweise komplexere Anforderungen hat, wie z.B. die Notwendigkeit, verschiedene Betriebssysteme auszuführen oder Hardware-Virtualisierung zu nutzen, kann eine VM eine bessere Wahl sein.
-
-Letztendlich hängt die Wahl zwischen Container oder VM als Gateway-Server von den spezifischen Anforderungen und Vorlieben des Benutzers ab. Es ist wichtig zu beachten, dass beide Optionen in der Lage sind, eine gute Leistung als Gateway-Server zu liefern.
-
 * gateway zum www 254
+* webseite hosten
+
+TIP: Container ist ressourcensparender als eine VM (https://ikus-soft.com/en_CA/blog/techies-10/proxmox-ve-performance-of-kvm-vs-lxc-75[Vergleich KVM und LXC^]), weshalb sie hier als Gateway verwendet werden.
+
+==== Configure Gateway Container
+
+* 3ahitm-wolfslehner-wakolbinger-glue
+** Mit diesen Einstellungen kann man das GlueNet und somit das www erreichen (siehe Netzwerkplan)
+
+image::screenshot-network-gateway-glue.png[]
+
+==== Configure Firewall for Gateway Container
+
+
+
+==== Webserver (Container)
+
+* Nginx
+
+
 
