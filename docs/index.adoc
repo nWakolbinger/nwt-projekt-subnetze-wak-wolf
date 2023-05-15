@@ -12,22 +12,28 @@ ifdef::backend-html5[]
 Hostname: 3ahitm-wolfslehner
 Password: WakWolfProjekt
 
-* CT 7260
+* CT 7260 (Router)
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-glue
 ** IP: 10.9.7.145
 ** Gateway zum GlueNet
 ** Firewall
 
-* VM 7261
-** Hostname: 3ahitm-wolfslehner-wakolbinger-01
-** IP: 10.9.7.146/28
-** Ubuntu iso Image
-
-* CT 7262
+* CT 7261
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-02
-** IP: 10.9.7.147/28
+** IP: 10.9.7.146/28
 ** Container für Webserver
-** NGINX (noch nicht aktiv)
+** NGINX
+*** aufsetzen des NGINX: https://nvs.htl-leonding.ac.at/script/mProxmox/proxmox.html
+*** bei Start des Containers ist die Website (index.html) über die ip des Containers erreichbar
+
+* VM 7262
+** Hostname: 3ahitm-wolfslehner-wakolbinger-01
+** IP: 10.9.7.147/28
+** Ubuntu iso Image
+** für die VM müssen wir eine Verbindung zum Internet aufbauen:
+***   https://devconnected.com/how-to-change-ip-address-on-linux/
+*** jedoch muss zuerst das Keybordlayout in der VM auf Deutsch gesetzt werden (https://www.google.com/search?q=lubuntu+change+keyboard+layout&rlz=1C1CSMH_deAT1023AT1023&oq=lubuntu+change+keyb&aqs=chrome.1.69i57j0i512j0i22i30l7.9322j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_NDhiZKf9BZKR9u8P_PaS0Ac_28)
+
 
 * CT 7263
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-03
