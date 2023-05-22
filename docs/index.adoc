@@ -24,6 +24,7 @@ Password: WakWolfProjekt
 ** Container für Webserver
 ** NGINX
 *** aufsetzen des NGINX: https://nvs.htl-leonding.ac.at/script/mProxmox/proxmox.html
+**** Pfad zur index.html: cd /var/www/html/
 *** bei Start des Containers ist die Website (index.html) über die ip des Containers erreichbar
 
 * VM 7262
@@ -33,7 +34,10 @@ Password: WakWolfProjekt
 ** für die VM müssen wir eine Verbindung zum Internet aufbauen:
 ***   https://devconnected.com/how-to-change-ip-address-on-linux/
 *** jedoch muss zuerst das Keybordlayout in der VM auf Deutsch gesetzt werden (https://www.google.com/search?q=lubuntu+change+keyboard+layout&rlz=1C1CSMH_deAT1023AT1023&oq=lubuntu+change+keyb&aqs=chrome.1.69i57j0i512j0i22i30l7.9322j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_NDhiZKf9BZKR9u8P_PaS0Ac_28)
-
+*** Weiteres Problem: Internetverbindung einrichten:
+**** Problemlösung: Ubuntu wurde nicht auf die Festplatte geschrieben (nur Testversion)
+*** Vm Installieren:
+image:screenshot-ubuntu-installieren.png[]
 
 * CT 7263
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-03
