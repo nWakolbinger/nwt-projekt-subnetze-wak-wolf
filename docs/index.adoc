@@ -38,7 +38,10 @@ Password: WakWolfProjekt
 **** Problemlösung: Ubuntu wurde nicht auf die Festplatte geschrieben (nur Testversion)
 *** Vm Installieren:
 image:screenshot-ubuntu-installieren.png[]
-
+*** ip_forward am Rooter auf 1 setzen:
+image:screenshot-ip_forward.png[]
+*** Netzwerkeinstellungen auf der VM:
+image:screenshot-network-vm.png[]
 * CT 7263
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-03
 ** IP: 10.9.7.148/28
