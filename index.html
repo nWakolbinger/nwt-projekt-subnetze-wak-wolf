@@ -446,11 +446,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_containervms">1. Container/VMs</a></li>
-<li><a href="#_plan">2. Plan</a>
+<li><a href="#_ct_7260_router">2. CT 7260 (Router)</a></li>
+<li><a href="#_ct_7261">3. CT 7261</a></li>
+<li><a href="#_vm_7262">4. VM 7262</a></li>
+<li><a href="#_ct_7263">5. CT 7263</a></li>
+<li><a href="#_ct_7264">6. CT 7264</a></li>
+<li><a href="#_plan">7. Plan</a>
 <ul class="sectlevel3">
-<li><a href="#_configure_gateway_container">2.1. Configure Gateway Container</a></li>
-<li><a href="#_configure_firewall_for_gateway_container">2.2. Configure Firewall for Gateway Container</a></li>
-<li><a href="#_webserver_container">2.3. Webserver (Container)</a></li>
+<li><a href="#_configure_gateway_container">7.1. Configure Gateway Container</a></li>
+<li><a href="#_webserver_container">7.2. Webserver (Container)</a></li>
 </ul>
 </li>
 </ul>
@@ -464,10 +468,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Hostname: 3ahitm-wolfslehner
 Password: WakWolfProjekt</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>CT 7260 (Router)</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ct_7260_router"><a class="anchor" href="#_ct_7260_router"></a>2. CT 7260 (Router)</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -484,9 +489,11 @@ Password: WakWolfProjekt</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>CT 7261</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ct_7261"><a class="anchor" href="#_ct_7261"></a>3. CT 7261</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -520,9 +527,11 @@ Password: WakWolfProjekt</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>VM 7262</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vm_7262"><a class="anchor" href="#_vm_7262"></a>4. VM 7262</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -571,9 +580,11 @@ Password: WakWolfProjekt</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>CT 7263</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ct_7263"><a class="anchor" href="#_ct_7263"></a>5. CT 7263</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -582,38 +593,75 @@ Password: WakWolfProjekt</p>
 <li>
 <p>IP: 10.9.7.148/28</p>
 </li>
+<li>
+<p>Ad-Blocker using Pihole</p>
+<div class="ulist">
+<ul>
+<li>
+<p>console:</p>
+</li>
 </ul>
 </div>
 </li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># apt install curl
+# curl -sSL https://install.pi-hole.net | bash</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p>CT 7264</p>
+<p>VM:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>set the dns in the Network-settings in the VM to the ip-adress: 10.9.7.148:
+<span class="image"><img src="images/screenshot-network-vm-dns.png" alt="screenshot network vm dns"></span></p>
+</li>
+<li>
+<p>dns in router was automatically set</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ct_7264"><a class="anchor" href="#_ct_7264"></a>6. CT 7264</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
 <p>Hostname: 3ahitm-wolfslehner-wakolbinger-04</p>
 </li>
-</ul>
-</div>
-</li>
+<li>
+<p>Proxyserver
+<span class="image"><img src="images/screenshot-proxyserver-settings.png" alt="screenshot proxyserver settings"></span></p>
+<div class="ulist">
+<ul>
 <li>
 <p>CT 7265</p>
-<div class="ulist">
-<ul>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>Hostname: 3ahitm-wolfslehner-wakolbinger-05</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>CT 7267</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Hostname: 3ahitm-wolfslehner-wakolbinger-06</p>
+<p>CT 7267</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>Hostname: 3ahitm-wolfslehner-wakolbinger-06</p>
 </li>
 </ul>
 </div>
@@ -629,7 +677,7 @@ Password: WakWolfProjekt</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_plan"><a class="anchor" href="#_plan"></a>2. Plan</h2>
+<h2 id="_plan"><a class="anchor" href="#_plan"></a>7. Plan</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -667,7 +715,7 @@ Container ist ressourcensparender als eine VM (<a href="https://ikus-soft.com/en
 </table>
 </div>
 <div class="sect3">
-<h4 id="_configure_gateway_container"><a class="anchor" href="#_configure_gateway_container"></a>2.1. Configure Gateway Container</h4>
+<h4 id="_configure_gateway_container"><a class="anchor" href="#_configure_gateway_container"></a>7.1. Configure Gateway Container</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -689,11 +737,7 @@ Container ist ressourcensparender als eine VM (<a href="https://ikus-soft.com/en
 </div>
 </div>
 <div class="sect3">
-<h4 id="_configure_firewall_for_gateway_container"><a class="anchor" href="#_configure_firewall_for_gateway_container"></a>2.2. Configure Firewall for Gateway Container</h4>
-
-</div>
-<div class="sect3">
-<h4 id="_webserver_container"><a class="anchor" href="#_webserver_container"></a>2.3. Webserver (Container)</h4>
+<h4 id="_webserver_container"><a class="anchor" href="#_webserver_container"></a>7.2. Webserver (Container)</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -711,7 +755,7 @@ Container ist ressourcensparender als eine VM (<a href="https://ikus-soft.com/en
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-06-05 13:19:29 UTC
+Last updated 2023-06-12 14:21:22 UTC
 </div>
 </div>
 </body>
