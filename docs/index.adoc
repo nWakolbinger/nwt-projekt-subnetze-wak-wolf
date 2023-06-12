@@ -12,13 +12,13 @@ ifdef::backend-html5[]
 Hostname: 3ahitm-wolfslehner
 Password: WakWolfProjekt
 
-* CT 7260 (Router)
+== CT 7260 (Router)
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-glue
 ** IP: 10.9.7.145
 ** Gateway zum GlueNet
 ** Firewall
 
-* CT 7261
+== CT 7261
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-02
 ** IP: 10.9.7.146/28
 ** Container für Webserver
@@ -27,7 +27,7 @@ Password: WakWolfProjekt
 **** Pfad zur index.html: cd /var/www/html/
 *** bei Start des Containers ist die Website (index.html) über die ip des Containers erreichbar
 
-* VM 7262
+== VM 7262
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-01
 ** IP: 10.9.7.147/28
 ** Ubuntu iso Image
@@ -42,12 +42,26 @@ image:screenshot-ubuntu-installieren.png[]
 image:screenshot-ip_forward.png[]
 *** Netzwerkeinstellungen auf der VM:
 image:screenshot-network-vm.png[]
-* CT 7263
+
+== CT 7263
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-03
 ** IP: 10.9.7.148/28
+** Ad-Blocker using Pihole
+*** console:
+[source,bash]
+----
+# apt install curl
+# curl -sSL https://install.pi-hole.net | bash
+----
+** VM:
+*** set the dns in the Network-settings in the VM to the ip-adress: 10.9.7.148:
+image:screenshot-network-vm-dns.png[]
+*** dns in router was automatically set
 
-* CT 7264
+== CT 7264
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-04
+** Proxyserver
+image:screenshot-proxyserver-settings.png[]
 
 * CT 7265
 ** Hostname: 3ahitm-wolfslehner-wakolbinger-05
@@ -77,8 +91,6 @@ TIP: Container ist ressourcensparender als eine VM (https://ikus-soft.com/en_CA/
 ** Mit diesen Einstellungen kann man das GlueNet und somit das www erreichen (siehe Netzwerkplan)
 
 image::screenshot-network-gateway-glue.png[]
-
-==== Configure Firewall for Gateway Container
 
 
 
